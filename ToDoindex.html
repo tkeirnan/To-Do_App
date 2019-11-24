@@ -25,25 +25,26 @@
         </h3>
         <form class="form-group mb-3">
           <input type="text" class="form-control mt-3 " />
-          <input type="submit" class="btn btn-dark float-right mt-3" value="Enter" />
+          <input onclick="createToDo()" type="button" class="btn btn-dark float-right mt-3" value="Add" />
         </form>
-        <h2 class="title">To-Do List</h2>
-        <ul id="items" class="list-group">
-          <li class="list-group-item">Item 1</li>
-        </ul>
-        <div class="row">
-        
-          <div class="col">
-            <button type="button" class="btn btn-danger float-right mt-3 mb-4">
-              Delete
-            </button>
-            <button type="button" class="btn btn-success float-right mt-3 mr-2 mb-4">
-              Mark Completed
-            </button>
-            
+        <h2 class="title">To-Do List:</h2>
+
+        <div id="newToDoObject" style="display:none">
+          <ul id="items" class="list-group list-group-flush">
+            <li class="list-group-item" id="output">Item 1</li>
+          </ul>
+          <div class="row">
+            <div class="col">
+              <button type="button" class="btn btn-danger float-right mt-3 mb-4">
+                Delete
+              </button>
+              <button type="button" class="btn btn-success float-right mt-3 mr-2 mb-4">
+                Mark Completed
+              </button>
+            </div>
           </div>
         </div>
-              
+
       </div>
     </div>
 
