@@ -1,44 +1,96 @@
-// IIFE
+var form = document.getElementById('addForm');
+var itemList = document.getElementById('items');
+var filter = document.getElementById('filter');
 
-console.log(document.getElementById("newToDoObject"));
+// Form submit event
+form.addEventListener('submit', addItem);
+// Delete event
+itemList.addEventListener('click', removeItem);
+// Filter event
+filter.addEventListener('keyup', filterItems);
 
-    // Turn new toDoItem HTML code into a toDoObject
+// Add item
+function addItem(e){
+  e.preventDefault();
 
-    function createToDo() {
-        var newToDoObject = document.getElementById("newToDoObject");
-        
+  // Get input value
+  var newItem = document.getElementById('item').value;
 
-        if (newToDoObject.style.display === "none") {
-            newToDoObject.style.display = "block";
-        } else {
-            newToDoObject.style.display = "none";
-        }     
+  // Create new li element
+  var li = document.createElement('li');
 
-    };
+  // Add class
+  li.className = 'list-group-item';
 
-    var itemInput = document.querySelector('input[type="text"]');
-    var form = document.querySelector('form');
+  // Add text node with input value
+  li.appendChild(document.createTextNode(newItem));
 
-    itemInput.addEventListener('keydown', runEvent);
+  // Create del button element
+  var deleteBtn = document.createElement('button');
 
-    function runEvent(e){
-        console.log('Event Type: '+e.type);
-        document.getElementById('output').innerText = e.target.value;
-    };
-
-
-    // hide toDoObject by default
-
-    // send input text to toDoObject
-
-    // enterButton reveals a new toDoObject with text
-
-    // completedButton strikes text in object (.disabled)
-
-    // deleteButton deletes toDoObject
-
-
-
-
+  // Add classes to del button
+  deleteBtn.className = 'btn btn-danger btn-sm float-right mt-1 mb-1 delete';
   
+  // Append text node to del button
+  deleteBtn.appendChild(document.createTextNode('Delete'));
 
+  // Create completed button element
+  var completedBtn = document.createElement('button');
+
+  // Add classes to completed button
+  completedBtn.className = 'btn btn-success btn-sm float-right mt-1 mr-2 mb-1 markCompleted';
+  
+  // Append text node to completed button
+  completedBtn.appendChild(document.createTextNode('Mark Completed'));
+  completedBtn.addEventListener('click', strikeItem);
+
+  // Append button to li
+  li.appendChild(deleteBtn);
+  
+  //Append second button to li
+  li.appendChild(completedBtn);
+
+  // Append li to list
+  itemList.appendChild(li);
+}
+
+// Remove item
+function removeItem(e){
+  if(e.target.classList.contains('delete')){
+    if(confirm('Are you sure you wish to delete?')){
+      var li = e.target.parentElement;
+      itemList.removeChild(li);
+    }
+  }
+}
+
+
+// Strikethrough item
+function strikeItem(e){
+  console.log('strike item function ran!');
+    if(e.target.classList.contains('markCompleted')){
+        if(confirm('Are you sure you wish to mark as completed?')){
+            var completedBtn = e.currentTarget;
+            completedBtn.parentElement.style.textDecoration = "line-through";
+        }
+    }
+}
+console.log(strikeItem);
+
+
+// Filter Items
+function filterItems(e){
+  // convert text to lowercase
+  var text = e.target.value.toLowerCase();
+  // Get lis
+  var items = itemList.getElementsByTagName('li');
+  // Convert to an array
+  Array.from(items).forEach(function(item){
+    var itemName = item.firstChild.textContent;
+    if(itemName.toLowerCase().indexOf(text) != -1){
+      item.style.display = 'block';
+    } else {
+      item.style.display = 'none';
+    }
+  });
+}
