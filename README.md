@@ -13,7 +13,6 @@ Using HTML and Vanilla JavaScript, Tommy was able to create a To-do application 
 What things you need to install the software and how to install them
 
 ```
-<a href="
-https://www.tommykeirnan.com/ToDoindex.html">https://www.tommykeirnan.com/ToDoindex.html</a>
+https://www.tommykeirnan.com/ToDoindex.html
 ```
 
