@@ -4,7 +4,7 @@ Using HTML and Vanilla JavaScript, Tommy was able to create a To-do application 
 
 ## Built With
 
-<img src = "images/html.png" alt="HTML5 icon">
+<img src = "https://github.com/tkeirnan/To-Do_App/blob/master/images/HTML.png" alt="HTML5 icon">
 
 
 ### Prerequisites
