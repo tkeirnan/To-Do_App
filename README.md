@@ -10,7 +10,7 @@ Using HTML and Vanilla JavaScript, Tommy was able to create a To-do application 
 
 ### Available at:
 
-What things you need to install the software and how to install them
+If you wish to visit this app visit the URL below.
 
 ```
 https://www.tommykeirnan.com/ToDoindex.html
