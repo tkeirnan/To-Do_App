@@ -6,8 +6,6 @@ var filter = document.getElementById('filter');
 form.addEventListener('submit', addItem);
 // Delete event
 itemList.addEventListener('click', removeItem);
-// Filter event
-filter.addEventListener('keyup', filterItems);
 
 // Add item
 function addItem(e){
@@ -67,7 +65,6 @@ function removeItem(e){
 
 // Strikethrough item
 function strikeItem(e){
-  console.log('strike item function ran!');
     if(e.target.classList.contains('markCompleted')){
         if(confirm('Are you sure you wish to mark as completed?')){
             var completedBtn = e.currentTarget;
@@ -75,7 +72,7 @@ function strikeItem(e){
         }
     }
 }
-console.log(strikeItem);
+
 
 
 // Filter Items
