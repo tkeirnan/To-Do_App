@@ -7,6 +7,13 @@ form.addEventListener('submit', addItem);
 // Delete event
 itemList.addEventListener('click', removeItem);
 
+function createToDoLiElement(){
+  const todoLi = document.createElement('Li');
+  todoLi.className = 'list-group-item';
+
+  return todoLi;
+}
+
 // Add item
 function addItem(e){
   e.preventDefault();
@@ -15,10 +22,7 @@ function addItem(e){
   var newItem = document.getElementById('item').value;
 
   // Create new li element
-  var li = document.createElement('li');
-
-  // Add class
-  li.className = 'list-group-item';
+  var li = createToDoLiElement();
 
   // Add text node with input value
   li.appendChild(document.createTextNode(newItem));
