@@ -50,6 +50,9 @@ function addItem(e){
 
   // Append li to list
   itemList.appendChild(li);
+
+  // Clear input box
+  document.getElementById('item').value = '';
 }
 
 // Remove item
@@ -62,7 +65,6 @@ function removeItem(e){
   }
 }
 
-
 // Strikethrough item
 function strikeItem(e){
     if(e.target.classList.contains('markCompleted')){
@@ -72,8 +74,6 @@ function strikeItem(e){
         }
     }
 }
-
-
 
 // Filter Items
 function filterItems(e){
