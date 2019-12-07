@@ -7,11 +7,37 @@ form.addEventListener('submit', addItem);
 // Delete event
 itemList.addEventListener('click', removeItem);
 
-function createToDoLiElement(){
+function createToDoLiElement(todoItemText){
   const todoLi = document.createElement('Li');
   todoLi.className = 'list-group-item';
+  todoLi.appendChild(document.createTextNode(todoItemText))
 
   return todoLi;
+}
+
+function createDeleteButton(){
+  const deleteBtn = document.createElement('button');
+
+  // Add classes to del button
+  deleteBtn.className = 'btn btn-danger btn-sm float-right mt-1 mb-1 delete';
+  
+  // Append text node to del button
+  deleteBtn.appendChild(document.createTextNode('Delete'));
+  return deleteBtn;
+}
+
+function createCompletedButton(){
+  // Create completed button element
+  var completedBtn = document.createElement('button');
+
+  // Add classes to completed button
+  completedBtn.className = 'btn btn-success btn-sm float-right mt-1 mr-2 mb-1 markCompleted';
+  
+  // Append text node to completed button
+  completedBtn.appendChild(document.createTextNode('Mark Completed'));
+  completedBtn.addEventListener('click', strikeItem);
+
+  return completedBtn;
 }
 
 // Add item
@@ -22,29 +48,13 @@ function addItem(e){
   var newItem = document.getElementById('item').value;
 
   // Create new li element
-  var li = createToDoLiElement();
-
-  // Add text node with input value
-  li.appendChild(document.createTextNode(newItem));
+  var li = createToDoLiElement(newItem);
 
   // Create del button element
-  var deleteBtn = document.createElement('button');
-
-  // Add classes to del button
-  deleteBtn.className = 'btn btn-danger btn-sm float-right mt-1 mb-1 delete';
-  
-  // Append text node to del button
-  deleteBtn.appendChild(document.createTextNode('Delete'));
+  var deleteBtn = createDeleteButton();
 
   // Create completed button element
-  var completedBtn = document.createElement('button');
-
-  // Add classes to completed button
-  completedBtn.className = 'btn btn-success btn-sm float-right mt-1 mr-2 mb-1 markCompleted';
-  
-  // Append text node to completed button
-  completedBtn.appendChild(document.createTextNode('Mark Completed'));
-  completedBtn.addEventListener('click', strikeItem);
+  var completedBtn = createCompletedButton();
 
   // Append button to li
   li.appendChild(deleteBtn);
