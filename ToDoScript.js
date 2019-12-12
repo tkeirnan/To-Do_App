@@ -1,3 +1,6 @@
+//retrieve items in local storage => [{ text: '', completed: false }]
+// create all the li elements based on the objects in the array
+
 var form = document.getElementById('addForm');
 var itemList = document.getElementById('items');
 var filter = document.getElementById('filter');
@@ -12,6 +15,9 @@ function createToDoLiElement(todoItemText){
   todoLi.className = 'list-group-item';
   todoLi.appendChild(document.createTextNode(todoItemText))
 
+ //add item to local storage
+ //here
+ 
   return todoLi;
 }
 
