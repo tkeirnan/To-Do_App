@@ -1,4 +1,4 @@
-// //*ANDYS HELP*
+// Set variables
 
 var form = document.getElementById('addForm');
 var itemList = document.getElementById('items');
@@ -51,7 +51,7 @@ function addItem(e) {
   // Create new li element
   var li = createToDoLiElement(newItem);
 
-  // retrieve items array in local storage and store in variable *ANDYS HELP*;
+  // retrieve items array in local storage and store in variable
   let savedToDos = localStorage.getItem('todo-items');
   console.log('right after retrieving: ', savedToDos);
   if (savedToDos === null) {
@@ -61,11 +61,11 @@ function addItem(e) {
   }
   console.log(savedToDos);
 
-  // add the new todo item information to items array *ANDYS HELP*
+  // add the new todo item information to items array 
   savedToDos.push(newItem);
   console.log(savedToDos);
 
-  // update local storage with the new items array ANDYS HELP
+  // update local storage with the new items array 
   localStorage.setItem('todo-items', JSON.stringify(savedToDos));
 
   // Create del button element
@@ -106,8 +106,7 @@ function removeItem(e) {
       var index = savedToDos.indexOf(e.target.previousSibling.textContent);
       savedToDos.splice(index, 1);
       console.log(savedToDos);
-      // search for the matching todoitem
-      // remove todoitem from the array
+      
       // update localstorage with new array
       localStorage.setItem('todo-items', JSON.stringify(savedToDos));
     }
